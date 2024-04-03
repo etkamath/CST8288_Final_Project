@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * JavaBean class used in jsp action tags.
- * @author Ramesh Fadatare
+ * @author Etka Dakak
  */
 public class Employee implements Serializable {
     /**
