@@ -30,17 +30,17 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>src/main/webapp/WEB-INF/lib/jsp-api-2.1.jar</name>
+			<name>src/main/webapp/WEB-INF/lib3/jsp-api-2.1.jar</name>
 			<type>1</type>
 			<locationURI>PARENT-3-PROJECT_LOC/Downloads/jsp-api-2.1.jar</locationURI>
 		</link>
 		<link>
-			<name>src/main/webapp/WEB-INF/lib/jstl-1.2.jar</name>
+			<name>src/main/webapp/WEB-INF/lib3/jstl-1.2.jar</name>
 			<type>1</type>
 			<locationURI>PARENT-3-PROJECT_LOC/Downloads/jstl-1.2.jar</locationURI>
 		</link>
 		<link>
-			<name>src/main/webapp/WEB-INF/lib/servlet-api.jar</name>
+			<name>src/main/webapp/WEB-INF/lib3/servlet-api.jar</name>
 			<type>1</type>
 			<locationURI>PARENT-3-PROJECT_LOC/Downloads/servlet-api.jar</locationURI>
 		</link>
