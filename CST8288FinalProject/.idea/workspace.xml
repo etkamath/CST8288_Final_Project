@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="registration:war" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="464bf68a-2fd4-4d8b-9fa7-9b7d546447e0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/controller/ConsumerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/controller/DonationFoodServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/controller/LogoutServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/controller/SubscriptionServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/dao/UserType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/registration/HelloServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/showDonationFood.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/showFoods.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/showSubscription.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/subscription.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/controller/FoodItemServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/controller/FoodItemServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/controller/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/controller/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/dao/FoodDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/dao/FoodDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/dao/SubscriptionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/dao/SubscriptionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/db/AppContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/db/AppContextListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/db/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/db/DbConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/model/FoodItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/model/FoodItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/model/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jsp-api-2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/mysql-connector-j-8.2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/servlet-api.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib2/jsp-api-2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib2/jstl-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib2/mysql-connector-j-8.2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib2/servlet-api.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib2/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib3/jsp-api-2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib3/jstl-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib3/mysql-connector-j-8.2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib3/servlet-api.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib3/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/charityProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/charityProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/consumerProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/consumerProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/retailerSuccess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/retailerSuccess.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="Salehi" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2elzwQvnPle6QFp3GfTBh9A03su" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.Tomcat 10.1.19.executor": "Run",
+    "git-widget-placeholder": "amir",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/amirhossein/Documents/OOP/Lab002/CST8288_Final_Project/CST8288FinalProject/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Facets",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="registration" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="registration" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 10.1.19" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.19" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="registration:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/registration_war" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="a51667d6-46b7-4335-bc2b-3f2cbd734dfe" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="65453" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="registration:war" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="464bf68a-2fd4-4d8b-9fa7-9b7d546447e0" name="Changes" comment="" />
+      <created>1712494190635</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712494190635</updated>
+      <workItem from="1712494191702" duration="689000" />
+      <workItem from="1712495367032" duration="18000" />
+      <workItem from="1712495390933" duration="126000" />
+      <workItem from="1712495524202" duration="4105000" />
+      <workItem from="1712500218001" duration="409000" />
+      <workItem from="1712500646666" duration="666000" />
+      <workItem from="1712516499061" duration="245000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

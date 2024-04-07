@@ -11,6 +11,7 @@ import net.javaguides.registration.dao.FoodDao;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.Optional;
 
 @WebServlet("/FoodItemServlet")
 public class FoodItemServlet extends HttpServlet {
@@ -28,7 +29,6 @@ public class FoodItemServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         String action = request.getParameter("action");
-
         if ("createFood".equals(action)) {
             createFood(request, response);
         } else if ("updateQuantity".equals(action)) {
