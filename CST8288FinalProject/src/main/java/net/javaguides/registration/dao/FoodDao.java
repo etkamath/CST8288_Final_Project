@@ -27,6 +27,33 @@ public class FoodDao {
             e.printStackTrace();
         }
     }
+    
+    public List<FoodItem> getSurplusFoodItems() {
+        List<FoodItem> surplusFoodItems = new ArrayList<>();
+        String sql = "SELECT * FROM FoodItems";
+
+        try (Connection connection = DbConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql);
+             ResultSet resultSet = statement.executeQuery()) {
+
+            while (resultSet.next()) {
+                FoodItem foodItem = new FoodItem();
+                foodItem.setItemID(resultSet.getInt("ItemID")); // Adjust field names based on your schema
+                foodItem.setRetailerID(resultSet.getInt("RetailerID"));
+                foodItem.setName(resultSet.getString("Name"));
+                foodItem.setQuantity(resultSet.getInt("Quantity"));
+                foodItem.setExpiryDate(resultSet.getDate("ExpiryDate"));
+                foodItem.setSurplus(resultSet.getBoolean("isSurplus"));
+                foodItem.setSurplusType(resultSet.getString("SurplusType")); // Assuming you have such a field
+
+                surplusFoodItems.add(foodItem);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return surplusFoodItems;
+    }
+
 
     public FoodItem findFoodById(int itemId) {
         FoodItem food = null;
@@ -80,6 +107,23 @@ public class FoodDao {
             e.printStackTrace();
         }
     }
+    
+    public boolean updateItemQuantity(int itemId, int newQuantity) {
+        String sql = "UPDATE FoodItems SET Quantity = ? WHERE ItemID = ?";
+        try (Connection connection = DbConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            
+            statement.setInt(1, newQuantity);
+            statement.setInt(2, itemId);
+            
+            int rowsAffected = statement.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public List<FoodItem> getAllFoodItems() {
         List<FoodItem> foodItems = new ArrayList<>();
         String sql = "SELECT * FROM FoodItems";

@@ -13,7 +13,7 @@
     </form>
     
     <!-- Çıkış yapmak için buton -->
-    <form action="register.jsp" method="get">
+    <form action="login.jsp" method="get">
         <input type="submit" value="Logout">
     </form>
     

@@ -11,7 +11,7 @@
     <% 
         User loggedInUser = (User) session.getAttribute("loggedInUser");
         if (loggedInUser != null && "Retailer".equals(loggedInUser.getUserType())) {
-            // Retailer türündeki kullanıcı için form göster.
+            // Show form for users of type 'Retailer'.
     %>
         <form action="RetailerServlet" method="post">
             Store Name: <input type="text" name="storeName" required><br>
@@ -21,9 +21,14 @@
         </form>
     <% 
         } else {
-            // Eğer kullanıcı Retailer değilse veya oturum açılmamışsa, login sayfasına yönlendir.
+            // If the user is not a Retailer or not logged in, redirect to the login page.
             response.sendRedirect("login.jsp");
         }
     %>
+    
+    <!-- Logout button to redirect to register.jsp -->
+    <form action="login.jsp" method="get">
+        <input type="submit" value="Logout">
+    </form>
 </body>
 </html>

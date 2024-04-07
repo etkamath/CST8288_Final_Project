@@ -9,6 +9,8 @@ public class FoodItem {
     private int quantity;
     private Date expiryDate;
     private boolean isSurplus;
+    private String surplusType; // "Donation" or "Sale"
+
 
     //discount 0 means for donation and upper than 0 means for sale at reduced price
    private double discount=0;
@@ -73,4 +75,14 @@ public class FoodItem {
     public void setSurplus(boolean isSurplus) {
         this.isSurplus = isSurplus;
     }
+    
+
+    public String getSurplusType() {
+        return surplusType;
+    }
+
+    public void setSurplusType(String surplusType) {
+        this.surplusType = surplusType;
+    }
+
 }
