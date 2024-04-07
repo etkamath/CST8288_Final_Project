@@ -7,6 +7,7 @@ import java.io.Serializable;
  * @author Etka Dakak
  */
 public class User {
+
     private int userID; // Assuming auto-increment in the database
     private String userName;
     private String email;

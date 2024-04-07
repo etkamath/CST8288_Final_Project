@@ -11,6 +11,7 @@ import net.javaguides.registration.dao.FoodDao;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.Optional;
 
 /**
  * Servlet implementation class FoodItemServlet
@@ -48,7 +49,9 @@ public class FoodItemServlet extends HttpServlet {
             int quantity = Integer.parseInt(request.getParameter("quantity"));
             Date expiryDate = Date.valueOf(request.getParameter("expiryDate"));
             boolean isSurplus = Boolean.parseBoolean(request.getParameter("isSurplus"));
-            
+
+            double discount = Double.parseDouble(Optional.ofNullable(request.getParameter("discount")).orElseGet(()->"0"));
+
             User loggedInUser = (User) request.getSession().getAttribute("loggedInUser");
             int retailerID = loggedInUser.getUserID(); // RetailerID aslında mevcut oturumdaki UserID'dir.
 
@@ -59,7 +62,8 @@ public class FoodItemServlet extends HttpServlet {
             food.setQuantity(quantity);
             food.setExpiryDate(expiryDate);
             food.setSurplus(isSurplus);
-            
+                food.setDiscount(discount);
+
             // FoodItemDao aracılığıyla veritabanına kaydet.
             FoodDao foodDao = new FoodDao();
             foodDao.createFood(food);

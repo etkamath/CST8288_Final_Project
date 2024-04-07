@@ -10,8 +10,21 @@ public class FoodItem {
     private Date expiryDate;
     private boolean isSurplus;
 
+    //discount 0 means for donation and upper than 0 means for sale at reduced price
+   private double discount=0;
+
+
+
     // Constructor, getters, and setters
     public FoodItem() {}
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
 
     public int getItemID() {
         return itemID;

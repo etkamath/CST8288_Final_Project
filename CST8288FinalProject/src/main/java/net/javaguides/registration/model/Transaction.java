@@ -10,8 +10,10 @@ public class Transaction {
     private String transactionType; // ENUM 'Purchase', 'Donation'
     private Date transactionDate;
 
+
     // Constructor, getters, and setters
     public Transaction() {}
+
 
     public int getTransactionID() {
         return transactionID;
