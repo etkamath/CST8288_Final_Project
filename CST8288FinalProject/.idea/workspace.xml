@@ -10,46 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="464bf68a-2fd4-4d8b-9fa7-9b7d546447e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/controller/ConsumerServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/controller/DonationFoodServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/controller/LogoutServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/controller/SubscriptionServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/dao/UserType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/registration/HelloServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/showDonationFood.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/showFoods.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/showSubscription.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/subscription.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/controller/FoodItemServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/controller/FoodItemServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/controller/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/controller/UserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/dao/FoodDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/dao/FoodDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/dao/SubscriptionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/dao/SubscriptionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/db/AppContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/db/AppContextListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/db/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/db/DbConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/model/FoodItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/model/FoodItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/model/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/registration/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jsp-api-2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/mysql-connector-j-8.2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/servlet-api.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib2/jsp-api-2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib2/jstl-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib2/mysql-connector-j-8.2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib2/servlet-api.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib2/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib3/jsp-api-2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib3/jstl-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib3/mysql-connector-j-8.2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib3/servlet-api.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib3/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/charityProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/charityProfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/consumerProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/consumerProfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/retailerSuccess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/retailerSuccess.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +45,6 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Tomcat Server.Tomcat 10.1.19.executor": "Run",
     "git-widget-placeholder": "amir",
     "kotlin-language-version-configured": "true",
@@ -234,11 +194,22 @@
       <workItem from="1712495524202" duration="4105000" />
       <workItem from="1712500218001" duration="409000" />
       <workItem from="1712500646666" duration="666000" />
-      <workItem from="1712516499061" duration="245000" />
+      <workItem from="1712516499061" duration="1295000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
