@@ -7,13 +7,12 @@
 <title>Retailer Success Page</title>
 </head>
 <body>
-    <h2>Retailer Dashboard</h2>
+    <h2>Add Food Item</h2>
     <% 
         User loggedInUser = (User) session.getAttribute("loggedInUser");
         if (loggedInUser != null && "Retailer".equals(loggedInUser.getUserType())) {
             // Retailer türündeki kullanıcı için form göster.
     %>
-        <h3>Add Food Item</h3>
         <form action="FoodItemServlet" method="post">
             Item Name: <input type="text" name="name" required><br>
             Quantity: <input type="number" name="quantity" required min="1"><br>

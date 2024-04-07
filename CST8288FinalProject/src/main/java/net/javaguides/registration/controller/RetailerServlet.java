@@ -60,7 +60,7 @@ public class RetailerServlet extends HttpServlet {
             retailerDao.createRetailer(retailer);
             
             // İşlem sonrasında başka bir sayfaya yönlendir veya mesaj göster.
-            response.sendRedirect("retailerSuccess.jsp"); // İşlem başarılı sayfası
+            response.sendRedirect("manageFoodItems.jsp"); // İşlem başarılı sayfası
         } else {
             // Diğer aksiyonlar için kodlar burada olacak.
         }
