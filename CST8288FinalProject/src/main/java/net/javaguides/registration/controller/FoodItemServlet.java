@@ -46,6 +46,7 @@ public class FoodItemServlet extends HttpServlet {
         int quantity = Integer.parseInt(request.getParameter("quantity"));
         Date expiryDate = Date.valueOf(request.getParameter("expiryDate"));
         boolean isSurplus = Boolean.parseBoolean(request.getParameter("isSurplus"));
+        double discount = Double.parseDouble(request.getParameter("discount"));
 
         // Assuming session management for logged-in user
         User loggedInUser = (User) request.getSession().getAttribute("loggedInUser");
@@ -58,7 +59,9 @@ public class FoodItemServlet extends HttpServlet {
         food.setQuantity(quantity);
         food.setExpiryDate(expiryDate);
         food.setSurplus(isSurplus);
-
+if(isSurplus){
+    food.setDiscount(discount);
+}
         // Use FoodDao to interact with the database
         FoodDao foodDao = new FoodDao();
         foodDao.createFood(food);
