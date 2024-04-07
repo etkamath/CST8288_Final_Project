@@ -7,6 +7,7 @@
 </head>
 <body>
     <h2>Charity Profile</h2>
+    <a href="DonationFoodServlet">Donation Food</a>
     <% 
         // Burada session'dan kullanıcı bilgilerini alıp gösterebilirsiniz.
         User loggedInUser = (User)session.getAttribute("loggedInUser");

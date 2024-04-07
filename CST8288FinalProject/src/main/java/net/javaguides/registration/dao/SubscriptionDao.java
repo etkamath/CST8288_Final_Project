@@ -24,6 +24,27 @@ public class SubscriptionDao {
         }
     }
 
+    public Subscription findSubscriptionByUserId(int userId) {
+        Subscription subscription = null;
+        String sql = "SELECT * FROM Subscriptions WHERE UserID = ?";
+        try (Connection connection = DbConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, userId);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    subscription = new Subscription();
+                    subscription.setSubscriptionID(resultSet.getInt("SubscriptionID"));
+                    subscription.setUserID(resultSet.getInt("UserID"));
+                    subscription.setPreferences(resultSet.getString("Preferences"));
+                    subscription.setLocation(resultSet.getString("Location"));
+                    subscription.setContactMethod(resultSet.getString("ContactMethod"));
+                }
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return subscription;
+    }
     public Subscription findSubscriptionById(int subscriptionId) {
         Subscription subscription = null;
         String sql = "SELECT * FROM Subscriptions WHERE SubscriptionID = ?";
