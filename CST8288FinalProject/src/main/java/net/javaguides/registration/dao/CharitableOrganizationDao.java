@@ -11,7 +11,7 @@ import net.javaguides.registration.model.CharitableOrganization;
 public class CharitableOrganizationDao {
 
     public void createCharitableOrganization(CharitableOrganization organization) {
-        String sql = "INSERT INTO CharitableOrganizations (UserID, OrganizationName, Location) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO CharitableOrganizations (OrganizationID, OrganizationName, Location) VALUES (?, ?, ?)";
         try (Connection connection = DbConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, organization.getOrganizationID());

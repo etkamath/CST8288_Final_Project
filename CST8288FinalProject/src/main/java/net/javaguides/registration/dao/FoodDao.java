@@ -1,9 +1,6 @@
 package net.javaguides.registration.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,20 +9,33 @@ import net.javaguides.registration.model.FoodItem;
 
 public class FoodDao {
 
-    public void createFood(FoodItem food) {
+    public FoodItem createFood(FoodItem food) {
         String sql = "INSERT INTO FoodItems (RetailerID, Name, Quantity, ExpiryDate, IsSurplus, Price) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection connection = DbConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+             PreparedStatement statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS)) {
             statement.setInt(1, food.getRetailerID());
             statement.setString(2, food.getName());
             statement.setInt(3, food.getQuantity());
             statement.setDate(4, new java.sql.Date(food.getExpiryDate().getTime()));
             statement.setBoolean(5, food.isSurplus());
             statement.setDouble(6, food.getPrice()); 
-            statement.executeUpdate();
+          int affectedRows=  statement.executeUpdate();
+            if (affectedRows == 0) {
+              //  throw new SQLException("Creating user failed, no rows affected.");
+            }else {
+
+                try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        food.setItemID(generatedKeys.getInt(1));
+                    } else {
+                        throw new SQLException("Creating user failed, no ID obtained.");
+                    }
+                }
+            }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+        return food;
     }
     
     public List<FoodItem> getSurplusFoodItems() {
@@ -144,5 +154,20 @@ public class FoodDao {
             e.printStackTrace();
         }
         return foodItems;
+    }
+    public void updateFoodItemQuantity(int itemID, int quantityToDeduct) {
+        String sql = "UPDATE FoodItems SET Quantity = Quantity - ? WHERE ItemID = ?";
+        try (Connection connection = DbConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, quantityToDeduct);
+            statement.setInt(2, itemID);
+
+            int affectedRows = statement.executeUpdate();
+            if (affectedRows == 0) {
+                throw new SQLException("Updating quantity failed, no rows affected.");
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

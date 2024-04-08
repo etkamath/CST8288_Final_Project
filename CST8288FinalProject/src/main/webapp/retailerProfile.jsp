@@ -30,5 +30,7 @@
     <form action="login.jsp" method="get">
         <input type="submit" value="Logout">
     </form>
+    <a href="TransactionServlet" >Show Transactions</a>
+
 </body>
 </html>

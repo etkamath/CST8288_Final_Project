@@ -3,22 +3,22 @@ package net.javaguides.registration.model;
 import java.util.Date;
 
 public class Transaction {
-    private int transactionID; // Assuming auto-increment in the database
-    private int itemID; // Foreign Key to FoodItem.itemID
-    private int userID; // Foreign Key to User.userID
-    private int quantity;
-    private String transactionType; // ENUM 'Purchase', 'Donation'
-    private Date transactionDate;
+    private int transactionID; // Otomatik artırılacak, Primary Key
+    private int itemID; // FoodItem tablosundan Foreign Key
+    private int quantity; // Sipariş miktarı
+    private String name; // İsim
+    private String phoneNumber; // Telefon Numarası
+    private String address; // Adres
+    private Date deliveryDate; // Teslimat Tarihi
 
-    // Constructor, getters, and setters
+    // Constructor, getters ve setters
     public Transaction() {}
 
+    // Getter ve setter metodları...
+    
+    // transactionID için setter metoduna gerek yok çünkü otomatik artırılacak
     public int getTransactionID() {
         return transactionID;
-    }
-
-    public void setTransactionID(int transactionID) {
-        this.transactionID = transactionID;
     }
 
     public int getItemID() {
@@ -29,14 +29,6 @@ public class Transaction {
         this.itemID = itemID;
     }
 
-    public int getUserID() {
-        return userID;
-    }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
-
     public int getQuantity() {
         return quantity;
     }
@@ -45,19 +37,35 @@ public class Transaction {
         this.quantity = quantity;
     }
 
-    public String getTransactionType() {
-        return transactionType;
+    public String getName() {
+        return name;
     }
 
-    public void setTransactionType(String transactionType) {
-        this.transactionType = transactionType;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Date getTransactionDate() {
-        return transactionDate;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setTransactionDate(Date transactionDate) {
-        this.transactionDate = transactionDate;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Date getDeliveryDate() {
+        return deliveryDate;
+    }
+
+    public void setDeliveryDate(Date deliveryDate) {
+        this.deliveryDate = deliveryDate;
     }
 }
