@@ -95,6 +95,7 @@ public class UserServlet extends HttpServlet {
 	                }
 	            } else {
 	                // Login failed
+	                // Login failed
 	                response.sendRedirect("login.jsp?error=Invalid credentials");
 	            }
 	        } else if ("logout".equals(action)) {
