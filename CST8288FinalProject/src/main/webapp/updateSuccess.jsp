@@ -8,7 +8,13 @@
 <body>
     <h2>Update Successful</h2>
     <p>The item's quantity was successfully updated.</p>
-    <a href="updateItemQuantity.jsp">Update another item</a><br>
-    <a href="retailerProfile.jsp">Back to Home</a>
+    
+      <form action="manageFoodItems.jsp" method="get">
+        <input type="submit" value="Back to Home">
+    </form>
+    
+        <form action="updateItemQuantity.jsp" method="get">
+        <input type="submit" value="Update another item">
+    </form>
 </body>
 </html>

@@ -8,7 +8,13 @@
 <body>
     <h2>Update Failed</h2>
     <p>There was a problem updating the item's quantity. Please try again.</p>
-    <a href="updateItemQuantity.jsp">Try updating again</a><br>
-    <a href="retailerProfile.jsp">Back to Home</a>
+    
+      <form action="manageFoodItems.jsp" method="get">
+        <input type="submit" value="Back to Home">
+    </form>
+    
+        <form action="updateItemQuantity.jsp" method="get">
+        <input type="submit" value="Try to update another item">
+    </form>
 </body>
 </html>
