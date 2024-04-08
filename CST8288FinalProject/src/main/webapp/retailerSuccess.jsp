@@ -1,36 +1,69 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="net.javaguides.registration.model.User"%>
-<%@ page session="true" %>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Retailer Success Page</title>
-</head>
-<body>
-    <h2>Add Food Item</h2>
-    <% 
-        User loggedInUser = (User) session.getAttribute("loggedInUser");
-        if (loggedInUser != null && "Retailer".equals(loggedInUser.getUserType())) {
-            // Retailer türündeki kullanıcı için form göster.
-    %>
-        <form action="FoodItemServlet" method="post">
-            Item Name: <input type="text" name="name" required><br>
-            Quantity: <input type="number" name="quantity" required min="1"><br>
-            Expiry Date: <input type="date" name="expiryDate" required><br>
-            Is Surplus: 
-            <select name="isSurplus">
-                <option value="true">Yes</option>
-                <option value="false" selected>No</option>
-            </select><br>
-            Price: <input type="text" name="price" required pattern="^\d+(\.\d{1,2})?$"><br>
-            <input type="hidden" name="action" value="createFood">
-            <input type="submit" value="Add Food Item">
-        </form>
-    <% 
-        } else {
-            // Eğer kullanıcı Retailer değilse veya oturum açılmamışsa, login sayfasına yönlendir.
-            response.sendRedirect("login.jsp");
+package net.javaguides.registration.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import net.javaguides.registration.db.DbConnection;
+import net.javaguides.registration.model.Retailer;
+
+public class RetailerDao {
+
+    public void createRetailer(Retailer retailer) {
+        String sql = "INSERT INTO Retailers (RetailerID, StoreName, Location) VALUES (?, ?, ?)";
+        try (Connection connection = DbConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, retailer.getRetailerID());
+            statement.setString(2, retailer.getStoreName());
+            statement.setString(3, retailer.getLocation());
+            statement.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
-    %>
-</body>
-</html>
+    }
+
+    public Retailer findRetailerById(int retailerId) {
+        Retailer retailer = null;
+        String sql = "SELECT * FROM Retailers WHERE RetailerID = ?";
+        try (Connection connection = DbConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, retailerId);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    retailer = new Retailer();
+                    retailer.setRetailerID(resultSet.getInt("RetailerID"));
+                    retailer.setStoreName(resultSet.getString("StoreName"));
+                    retailer.setLocation(resultSet.getString("Location"));
+                }
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return retailer;
+    }
+
+    public void updateRetailer(Retailer retailer) {
+        String sql = "UPDATE Retailers SET StoreName = ?, Location = ? WHERE RetailerID = ?";
+        try (Connection connection = DbConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, retailer.getStoreName());
+            statement.setString(2, retailer.getLocation());
+            statement.setInt(3, retailer.getRetailerID());
+            statement.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteRetailer(int retailerId) {
+        String sql = "DELETE FROM Retailers WHERE RetailerID = ?";
+        try (Connection connection = DbConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, retailerId);
+            statement.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}

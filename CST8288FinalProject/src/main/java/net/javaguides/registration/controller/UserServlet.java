@@ -41,7 +41,7 @@ public class UserServlet extends HttpServlet {
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	            throws ServletException, IOException {
 	        String action = request.getParameter("action");
-	        
+			HttpSession session = request.getSession();
 	        if ("register".equals(action)) {
 	            // Formdan gelen verileri al
 	            String username = request.getParameter("username");
@@ -59,9 +59,27 @@ public class UserServlet extends HttpServlet {
 	            // Kullanıcıyı veritabanına kaydet
 	            UserDao userDao = new UserDao();
 	            userDao.createUser(newUser);
-	            
-	            // Kayıttan sonra giriş sayfasına yönlendir
-	            response.sendRedirect("login.jsp");
+				User user = userDao.findUserByEmail(email);
+
+				session.setAttribute("loggedInUser", user);
+
+				// Kayıttan sonra giriş sayfasına yönlendir
+				switch(user.getUserType()) {
+					case "Retailer":
+
+						response.sendRedirect("retailerProfile.jsp");
+						break;
+					case "Consumer":
+						response.sendRedirect("consumerProfile.jsp");
+						break;
+					case "Charitable Organization":
+						response.sendRedirect("charityProfile.jsp");
+						break;
+					default:
+						// Handle unknown user type
+						response.sendRedirect("login.jsp?error=Invalid user type");
+						break;
+				}
 	        }
 	        // Diğer 'action' değerleri için else if blokları eklenebilir
 	        
@@ -75,11 +93,11 @@ public class UserServlet extends HttpServlet {
 	            
 	            if (user != null && user.getPassword().equals(password) && user.getUserType().equals(userType)) {
 	                // Successful login with userType check
-	                HttpSession session = request.getSession();
 	                session.setAttribute("loggedInUser", user);
 	                // Redirect based on user type
 	                switch(user.getUserType()) {
 	                    case "Retailer":
+
 	                        response.sendRedirect("retailerProfile.jsp");
 	                        break;
 	                    case "Consumer":
@@ -99,7 +117,7 @@ public class UserServlet extends HttpServlet {
 	            }
 	        } else if ("logout".equals(action)) {
 	            // Logout logic
-	            HttpSession session = request.getSession(false);
+	             session = request.getSession(false);
 	            if (session != null) {
 	                session.invalidate();
 	            }
