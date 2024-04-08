@@ -13,7 +13,7 @@ import net.javaguides.registration.model.FoodItem;
 public class FoodDao {
 
     public void createFood(FoodItem food) {
-        String sql = "INSERT INTO FoodItems (RetailerID, Name, Quantity, ExpiryDate, IsSurplus) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO FoodItems (RetailerID, Name, Quantity, ExpiryDate, IsSurplus, Price) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection connection = DbConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, food.getRetailerID());
@@ -21,6 +21,7 @@ public class FoodDao {
             statement.setInt(3, food.getQuantity());
             statement.setDate(4, new java.sql.Date(food.getExpiryDate().getTime()));
             statement.setBoolean(5, food.isSurplus());
+            statement.setDouble(6, food.getPrice()); 
             statement.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -28,29 +29,28 @@ public class FoodDao {
     }
     
     public List<FoodItem> getSurplusFoodItems() {
-        List<FoodItem> surplusFoodItems = new ArrayList<>();
-        String sql = "SELECT * FROM FoodItems";
-
+        List<FoodItem> foodItems = new ArrayList<>();
+        String sql = "SELECT * FROM fooditems WHERE IsSurplus = TRUE";
         try (Connection connection = DbConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
 
             while (resultSet.next()) {
                 FoodItem foodItem = new FoodItem();
-                foodItem.setItemID(resultSet.getInt("ItemID")); // Adjust field names based on your schema
+                foodItem.setItemID(resultSet.getInt("ItemID"));
                 foodItem.setRetailerID(resultSet.getInt("RetailerID"));
                 foodItem.setName(resultSet.getString("Name"));
                 foodItem.setQuantity(resultSet.getInt("Quantity"));
+                foodItem.setPrice(resultSet.getInt("Price"));
                 foodItem.setExpiryDate(resultSet.getDate("ExpiryDate"));
-                foodItem.setSurplus(resultSet.getBoolean("isSurplus"));
-                foodItem.setSurplusType(resultSet.getString("SurplusType")); // Assuming you have such a field
-
-                surplusFoodItems.add(foodItem);
+                foodItem.setSurplus(resultSet.getBoolean("IsSurplus"));
+                
+                foodItems.add(foodItem);
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return surplusFoodItems;
+        return foodItems;
     }
 
 
@@ -67,6 +67,7 @@ public class FoodDao {
                     food.setRetailerID(resultSet.getInt("RetailerID"));
                     food.setName(resultSet.getString("Name"));
                     food.setQuantity(resultSet.getInt("Quantity"));
+                    food.setPrice(resultSet.getDouble("Price"));
                     food.setExpiryDate(resultSet.getDate("ExpiryDate"));
                     food.setSurplus(resultSet.getBoolean("IsSurplus"));
                 }
@@ -133,8 +134,10 @@ public class FoodDao {
                 foodItem.setRetailerID(resultSet.getInt("RetailerID"));
                 foodItem.setName(resultSet.getString("Name"));
                 foodItem.setQuantity(resultSet.getInt("Quantity"));
+                foodItem.setPrice(resultSet.getInt("Price"));
                 foodItem.setExpiryDate(resultSet.getDate("ExpiryDate"));
                 foodItem.setSurplus(resultSet.getBoolean("IsSurplus"));
+                
                 foodItems.add(foodItem);
             }
         } catch (SQLException | ClassNotFoundException e) {

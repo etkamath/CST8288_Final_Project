@@ -10,6 +10,7 @@ public class FoodItem {
     private Date expiryDate;
     private boolean isSurplus;
     private String surplusType; // "Donation" or "Sale"
+    private double price; // 
 
 
     // Constructor, getters, and setters
@@ -70,6 +71,14 @@ public class FoodItem {
 
     public void setSurplusType(String surplusType) {
         this.surplusType = surplusType;
+    }
+    
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
 }

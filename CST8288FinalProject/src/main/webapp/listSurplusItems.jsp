@@ -13,7 +13,7 @@
     List<FoodItem> surplusItems = dao.getSurplusFoodItems();
     for(FoodItem item : surplusItems) {
         out.println("<p>" + item.getName() + " - Quantity: " + item.getQuantity() + 
-                    " - Type: " + (item.isSurplus() ? item.getSurplusType() : "N/A") + "</p>");
+                    " - Price: " + item.getPrice() +  "</p>");
     }
     if(surplusItems.isEmpty()) {
         out.println("<p>No surplus items available.</p>");
