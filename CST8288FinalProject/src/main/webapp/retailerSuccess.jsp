@@ -22,6 +22,7 @@
                 <option value="true">Yes</option>
                 <option value="false" selected>No</option>
             </select><br>
+            Price: <input type="text" name="price" required pattern="^\d+(\.\d{1,2})?$"><br>
             <input type="hidden" name="action" value="createFood">
             <input type="submit" value="Add Food Item">
         </form>

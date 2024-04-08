@@ -41,13 +41,15 @@ public class FoodItemServlet extends HttpServlet {
 
     private void createFood(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
-        // Retrieve form data
+        // Retrieve form dataa
         String name = request.getParameter("name");
         int quantity = Integer.parseInt(request.getParameter("quantity"));
         Date expiryDate = Date.valueOf(request.getParameter("expiryDate"));
         boolean isSurplus = Boolean.parseBoolean(request.getParameter("isSurplus"));
+        double price = Double.parseDouble(request.getParameter("price"));
 
-        // Assuming session management for logged-in user
+
+        // Assuming session management for logged-in userr
         User loggedInUser = (User) request.getSession().getAttribute("loggedInUser");
         int retailerID = loggedInUser.getUserID(); // Example to retrieve retailer ID
 
@@ -58,6 +60,8 @@ public class FoodItemServlet extends HttpServlet {
         food.setQuantity(quantity);
         food.setExpiryDate(expiryDate);
         food.setSurplus(isSurplus);
+        food.setPrice(price);
+
 
         // Use FoodDao to interact with the database
         FoodDao foodDao = new FoodDao();

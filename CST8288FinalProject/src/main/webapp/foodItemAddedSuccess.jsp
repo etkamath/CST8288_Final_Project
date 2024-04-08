@@ -17,5 +17,9 @@
         <input type="submit" value="Logout">
     </form>
     
+      <form action="manageFoodItems.jsp" method="get">
+        <input type="submit" value="Back to Home">
+    </form>
+    
 </body>
 </html>
