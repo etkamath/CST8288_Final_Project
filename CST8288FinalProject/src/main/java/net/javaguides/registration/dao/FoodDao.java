@@ -145,4 +145,19 @@ public class FoodDao {
         }
         return foodItems;
     }
+    public void updateFoodItemQuantity(int itemID, int quantityToDeduct) {
+        String sql = "UPDATE FoodItems SET Quantity = Quantity - ? WHERE ItemID = ?";
+        try (Connection connection = DbConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, quantityToDeduct);
+            statement.setInt(2, itemID);
+
+            int affectedRows = statement.executeUpdate();
+            if (affectedRows == 0) {
+                throw new SQLException("Updating quantity failed, no rows affected.");
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }
