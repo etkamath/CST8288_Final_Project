@@ -16,7 +16,7 @@
     <select name="itemID">
         <% 
             FoodDao foodItemDao = new FoodDao();
-            List<FoodItem> foodItems = foodItemDao.getAllFoodItems();
+            List<FoodItem> foodItems = foodItemDao.getSurplusFoodItems();
             for (FoodItem item : foodItems) {
         %>
             <option value="<%= item.getItemID() %>"><%= item.getName() %></option>

@@ -63,6 +63,6 @@ public class TransactionServlet extends HttpServlet {
         FoodDao foodItemDao = new FoodDao();
         foodItemDao.updateFoodItemQuantity(itemID, quantity);
 
-        response.sendRedirect("orderSuccess.jsp");
+        response.sendRedirect("OrderAddedSuccess2.jsp");
     }
 }
