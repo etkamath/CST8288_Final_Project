@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import net.javaguides.registration.dao.NotificationDao;
 import net.javaguides.registration.model.FoodItem;
 import net.javaguides.registration.model.User;
 import net.javaguides.registration.dao.FoodDao;
@@ -65,10 +66,14 @@ public class FoodItemServlet extends HttpServlet {
 
         // Use FoodDao to interact with the database
         FoodDao foodDao = new FoodDao();
-        foodDao.createFood(food);
+       food = foodDao.createFood(food);
+new NotificationDao().notif(food);
+
 
         // Redirect or forward after operation
         response.sendRedirect("foodItemAddedSuccess.jsp");
+
+
     }
 
     private void updateItemQuantity(HttpServletRequest request, HttpServletResponse response) 

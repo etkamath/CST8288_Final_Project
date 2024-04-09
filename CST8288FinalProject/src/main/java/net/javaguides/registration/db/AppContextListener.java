@@ -1,8 +1,10 @@
 package net.javaguides.registration.db;
 
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
