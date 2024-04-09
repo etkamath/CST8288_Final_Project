@@ -15,14 +15,13 @@
         Welcome, <%= loggedInUser.getUserName() %>!<br>
         
         <!-- Food Item Bağış Formu -->
-        <h3>Donate Food Items</h3>
-        <form action="FoodItemServlet" method="post">
-            <input type="hidden" name="action" value="donateFoodItem">
-            Item Name: <input type="text" name="itemName" required><br>
-            Quantity: <input type="number" name="quantity" required min="1"><br>
-            Expiry Date: <input type="date" name="expiryDate" required><br>
-            <input type="submit" value="Donate">
-        </form>
+        <h3>Charitable Organization Information</h3>
+        <form action="CharityServlet" method="post">
+    Organization Name: <input type="text" name="organizationName" required><br>
+    Location: <input type="text" name="location" required><br>
+    <input type="hidden" name="action" value="createCharitableOrganization">
+    <input type="submit" value="Save">
+</form>
         
         <form action="UserServlet" method="post">
             <input type="hidden" name="action" value="logout">

@@ -2,31 +2,34 @@ package net.javaguides.registration.model;
 
 import java.util.Date;
 
-public class Transaction {
-    private int transactionID; // Otomatik artırılacak, Primary Key
-    private int itemID; // FoodItem tablosundan Foreign Key
-    private int quantity; // Sipariş miktarı
-    private String name; // İsim
-    private String phoneNumber; // Telefon Numarası
-    private String address; // Adres
-    private Date deliveryDate; // Teslimat Tarihi
+public class Orders {
+    private int orderID;
+    private int itemID;
+    private int quantity;
+    private String name;
+    private String phoneNumber;
+    private String address;
+    private Date deliveryDate;
 
-    // Constructor, getters ve setters
-    public Transaction() {}
+    // Constructor
+    public Orders() {
+    }
 
-    // Getter ve setter metodları...
-    
-    // transactionID için setter metoduna gerek yok çünkü otomatik artırılacak
-    public int getTransactionID() {
-        return transactionID;
+    // Getters and setters
+    public int getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(int orderId) {
+        this.orderID = orderId;
     }
 
     public int getItemID() {
         return itemID;
     }
 
-    public void setItemID(int itemID) {
-        this.itemID = itemID;
+    public void setItemID(int itemId) {
+        this.itemID = itemId;
     }
 
     public int getQuantity() {
