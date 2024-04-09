@@ -1,3 +1,4 @@
+```java
 package net.javaguides.registration.dao;
 
 import java.sql.Connection;
@@ -10,8 +11,15 @@ import java.util.List;
 import net.javaguides.registration.db.DbConnection;
 import net.javaguides.registration.model.FoodItem;
 
+/**
+ * Data access object for FoodItem model.
+ */
 public class FoodDao {
 
+    /**
+     * Creates a new food item in the database.
+     * @param food The food item to be created
+     */
     public void createFood(FoodItem food) {
         String sql = "INSERT INTO FoodItems (RetailerID, Name, Quantity, ExpiryDate, IsSurplus, Price) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection connection = DbConnection.getConnection();
@@ -28,6 +36,10 @@ public class FoodDao {
         }
     }
     
+    /**
+     * Retrieves a list of surplus food items from the database.
+     * @return A list of surplus food items
+     */
     public List<FoodItem> getSurplusFoodItems() {
         List<FoodItem> foodItems = new ArrayList<>();
         String sql = "SELECT * FROM fooditems WHERE IsSurplus = TRUE";
@@ -53,7 +65,11 @@ public class FoodDao {
         return foodItems;
     }
 
-
+    /**
+     * Finds a food item by its ID.
+     * @param itemId The ID of the food item
+     * @return The food item if found, otherwise null
+     */
     public FoodItem findFoodById(int itemId) {
         FoodItem food = null;
         String sql = "SELECT * FROM FoodItems WHERE ItemID = ?";
@@ -78,6 +94,10 @@ public class FoodDao {
         return food;
     }
 
+    /**
+     * Updates information of a food item in the database.
+     * @param food The food item to be updated
+     */
     public void updateFood(FoodItem food) {
         String sql = "UPDATE FoodItems SET RetailerID = ?, Name = ?, Quantity = ?, ExpiryDate = ?, IsSurplus = ? WHERE ItemID = ?";
         try (Connection connection = DbConnection.getConnection();
@@ -94,6 +114,10 @@ public class FoodDao {
         }
     }
 
+    /**
+     * Deletes a food item from the database by its ID.
+     * @param itemId The ID of the food item to be deleted
+     */
     public void deleteFood(int itemId) {
         String sql = "DELETE FROM FoodItems WHERE ItemID = ?";
         try (Connection connection = DbConnection.getConnection();
@@ -105,8 +129,16 @@ public class FoodDao {
         }
     }
     
+    /**
+     * Updates the quantity of a food item in the database.
+     * @param itemId The ID of the food item
+     * @param newQuantity The new quantity of the food item
+     * @return True if the quantity is successfully updated, otherwise false
+     */
     public boolean updateItemQuantity(int itemId, int newQuantity) {
-        String sql = "UPDATE FoodItems SET Quantity = ? WHERE ItemID = ?";
+        String sql
+
+ = "UPDATE FoodItems SET Quantity = ? WHERE ItemID = ?";
         try (Connection connection = DbConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             
@@ -121,6 +153,10 @@ public class FoodDao {
         }
     }
 
+    /**
+     * Retrieves a list of all food items from the database.
+     * @return A list of all food items
+     */
     public List<FoodItem> getAllFoodItems() {
         List<FoodItem> foodItems = new ArrayList<>();
         String sql = "SELECT * FROM FoodItems";
@@ -145,6 +181,12 @@ public class FoodDao {
         }
         return foodItems;
     }
+    
+    /**
+     * Updates the quantity of a food item in the database by deducting the specified quantity.
+     * @param itemID The ID of the food item
+     * @param quantityToDeduct The quantity to deduct from the existing quantity
+     */
     public void updateFoodItemQuantity(int itemID, int quantityToDeduct) {
         String sql = "UPDATE FoodItems SET Quantity = Quantity - ? WHERE ItemID = ?";
         try (Connection connection = DbConnection.getConnection();
@@ -161,3 +203,4 @@ public class FoodDao {
         }
     }
 }
+```

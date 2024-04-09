@@ -8,8 +8,15 @@ import java.sql.SQLException;
 import net.javaguides.registration.db.DbConnection;
 import net.javaguides.registration.model.Subscription;
 
+/**
+ * Data access object for managing subscriptions in the database.
+ */
 public class SubscriptionDao {
 
+    /**
+     * Creates a new subscription in the database.
+     * @param subscription The subscription to be created
+     */
     public void createSubscription(Subscription subscription) {
         String sql = "INSERT INTO Subscriptions (UserID, Preferences, Location, ContactMethod) VALUES (?, ?, ?, ?)";
         try (Connection connection = DbConnection.getConnection();
@@ -24,6 +31,11 @@ public class SubscriptionDao {
         }
     }
 
+    /**
+     * Finds a subscription by its ID in the database.
+     * @param subscriptionId The ID of the subscription to find
+     * @return The subscription if found, null otherwise
+     */
     public Subscription findSubscriptionById(int subscriptionId) {
         Subscription subscription = null;
         String sql = "SELECT * FROM Subscriptions WHERE SubscriptionID = ?";
@@ -46,6 +58,10 @@ public class SubscriptionDao {
         return subscription;
     }
 
+    /**
+     * Updates a subscription's information in the database.
+     * @param subscription The subscription to be updated
+     */
     public void updateSubscription(Subscription subscription) {
         String sql = "UPDATE Subscriptions SET UserID = ?, Preferences = ?, Location = ?, ContactMethod = ? WHERE SubscriptionID = ?";
         try (Connection connection = DbConnection.getConnection();
@@ -61,6 +77,10 @@ public class SubscriptionDao {
         }
     }
 
+    /**
+     * Deletes a subscription from the database.
+     * @param subscriptionId The ID of the subscription to be deleted
+     */
     public void deleteSubscription(int subscriptionId) {
         String sql = "DELETE FROM Subscriptions WHERE SubscriptionID = ?";
         try (Connection connection = DbConnection.getConnection();
@@ -72,3 +92,6 @@ public class SubscriptionDao {
         }
     }
 }
+```
+
+I have added Javadoc comments to each method in the `SubscriptionDao` class, providing a description of what each method does and the parameters it takes. Let me know if you need further assistance!

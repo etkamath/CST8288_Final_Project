@@ -11,20 +11,38 @@ import net.javaguides.registration.dao.FoodDao;
 
 import java.io.IOException;
 import java.sql.Date;
-
+/**
+ * Servlet implementation class FoodItemServlet
+ * This servlet handles operations related to food items.
+ */
 @WebServlet("/FoodItemServlet")
 public class FoodItemServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
+    /**
+     * Default constructor.
+     */
     public FoodItemServlet() {
         super();
     }
+    /**
+     * Handles the GET requests.
+     * @param request HttpServletRequest object
+     * @param response HttpServletResponse object
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Implementation can vary based on requirements
         doPost(request, response); // This line suggests a simple redirect to doPost for any GET requests.
     }
-
+    /**
+     * Handles the POST requests.
+     * @param request HttpServletRequest object
+     * @param response HttpServletResponse object
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -38,7 +56,13 @@ public class FoodItemServlet extends HttpServlet {
             response.getWriter().println("Action not recognized");
         }
     }
-
+    /**
+     * Creates a new food item.
+     * @param request HttpServletRequest object
+     * @param response HttpServletResponse object
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     private void createFood(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         // Retrieve form dataa
@@ -70,7 +94,13 @@ public class FoodItemServlet extends HttpServlet {
         // Redirect or forward after operation
         response.sendRedirect("foodItemAddedSuccess.jsp");
     }
-
+    /**
+     * Updates the quantity of a food item.
+     * @param request HttpServletRequest object
+     * @param response HttpServletResponse object
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     private void updateItemQuantity(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         int itemId = Integer.parseInt(request.getParameter("itemId"));

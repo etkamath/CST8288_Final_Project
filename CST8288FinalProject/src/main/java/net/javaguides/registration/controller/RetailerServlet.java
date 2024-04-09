@@ -14,30 +14,39 @@ import java.io.IOException;
 
 /**
  * Servlet implementation class RetailerServlet
+ * This servlet handles operations related to retailers.
  */
 @WebServlet("/RetailerServlet")
 public class RetailerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
+	/**
+     * Default constructor.
      */
     public RetailerServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    /**
+     * Handles the GET requests.
+     * @param request HttpServletRequest object
+     * @param response HttpServletResponse object
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+     * Handles the POST requests.
+     * @param request HttpServletRequest object
+     * @param response HttpServletResponse object
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -45,24 +54,24 @@ public class RetailerServlet extends HttpServlet {
         User loggedInUser = (User) session.getAttribute("loggedInUser");
         
         if ("createRetailer".equals(action)) {
-            // Formdan gelen mağaza bilgilerini al.
+        	// Get store information from the form.
             String storeName = request.getParameter("storeName");
             String location = request.getParameter("location");
             
-            // Retailer nesnesini oluştur ve formdan alınan bilgileri set et.
+         // Create Retailer object and set information from the form.
             Retailer retailer = new Retailer();
             retailer.setRetailerID(loggedInUser.getUserID()); // Oturumdaki UserID'yi al.
             retailer.setStoreName(storeName);
             retailer.setLocation(location);
             
-            // RetailerDao aracılığıyla veritabanına kaydet.
+         // Use RetailerDao to save to the database.
             RetailerDao retailerDao = new RetailerDao();
             retailerDao.createRetailer(retailer);
             
-            // İşlem sonrasında başka bir sayfaya yönlendir veya mesaj göster.
-            response.sendRedirect("manageFoodItems.jsp"); // İşlem başarılı sayfası
+         // Redirect or show a message after the operation.
+            response.sendRedirect("manageFoodItems.jsp");// Success page
         } else {
-            // Diğer aksiyonlar için kodlar burada olacak.
+        	// Codes for other actions will be here.
         }
     }
 
