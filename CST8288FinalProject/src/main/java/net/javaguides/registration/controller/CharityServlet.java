@@ -14,30 +14,39 @@ import java.io.IOException;
 
 /**
  * Servlet implementation class CharityServlet
+ * This servlet handles operations related to charitable organizations.
  */
 @WebServlet("/CharityServlet")
 public class CharityServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
-     * @see HttpServlet#HttpServlet()
+     * Default constructor.
      */
     public CharityServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    /**
+     * Handles the GET requests.
+     * @param request HttpServletRequest object
+     * @param response HttpServletResponse object
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+     * Handles the POST requests.
+     * @param request HttpServletRequest object
+     * @param response HttpServletResponse object
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -45,26 +54,26 @@ public class CharityServlet extends HttpServlet {
         User loggedInUser = (User) session.getAttribute("loggedInUser");
         
         if ("createCharitableOrganization".equals(action)) {
-            // Formdan gelen organizasyon bilgilerini al.
+        	// Get organization information from the form.
             String organizationName = request.getParameter("organizationName");
             String location = request.getParameter("location");
             
-            // CharitableOrganization nesnesini oluştur ve formdan alınan bilgileri set et.
+            // Create a CharitableOrganization object and set information from the form.
             CharitableOrganization charity = new CharitableOrganization();
-            charity.setOrganizationID(loggedInUser.getUserID()); // Oturumdaki UserID'yi al.
+            charity.setOrganizationID(loggedInUser.getUserID()); // Get UserID from the session.
             charity.setOrganizationName(organizationName);
             charity.setLocation(location);
             
-            // CharitableOrganizationDao aracılığıyla veritabanına kaydet.
+            // Save to the database through CharitableOrganizationDao.
             CharitableOrganizationDao charityDao = new CharitableOrganizationDao();
             charityDao.createCharitableOrganization(charity);
             
-            // İşlem sonrasında başka bir sayfaya yönlendir veya mesaj göster.
-            response.sendRedirect("charityPage.jsp"); // İşlem başarılı sayfası
+         // Redirect to another page or show a message after the operation.
+            response.sendRedirect("charityPage.jsp"); // Success page
         } else {
         	System.out.println("burdah hata");
         	
-            // Diğer aksiyonlar için kodlar burada olacak.
+        	// Codes for other actions will be here..
         }
     }
 

@@ -14,97 +14,106 @@ import java.io.IOException;
 
 /**
  * Servlet implementation class UserServlet
+ * This servlet handles user-related operations such as registration, login, and logout.
  */
 @WebServlet("/UserServlet")
 public class UserServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
        
     /**
-     * @see HttpServlet#HttpServlet()
+     * Default constructor.
      */
     public UserServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
-		dispatcher.forward(request, response);
-	}
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-		protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-	            throws ServletException, IOException {
-	        String action = request.getParameter("action");
-	        
-	        if ("register".equals(action)) {
-	            // Formdan gelen verileri al
-	            String username = request.getParameter("username");
-	            String email = request.getParameter("email");
-	            String password = request.getParameter("password");
-	            String userType = request.getParameter("usertype");
-	            
-	            // User nesnesi oluştur
-	            User newUser = new User();
-	            newUser.setUserName(username);
-	            newUser.setEmail(email);
-	            newUser.setPassword(password);
-	            newUser.setUserType(userType);
-	            
-	            // Kullanıcıyı veritabanına kaydet
-	            UserDao userDao = new UserDao();
-	            userDao.createUser(newUser);
-	            
-	            // Kayıttan sonra giriş sayfasına yönlendir
-	            response.sendRedirect("login.jsp");
-	        }
-	        // Diğer 'action' değerleri için else if blokları eklenebilir
-	        
-	        if ("login".equals(action)) {
-	            String email = request.getParameter("email");
-	            String password = request.getParameter("password");
-	            String userType = request.getParameter("usertype");
-	            
-	            UserDao userDao = new UserDao();
-	            User user = userDao.findUserByEmail(email);
-	            
-	            if (user != null && user.getPassword().equals(password) && user.getUserType().equals(userType)) {
-	                // Successful login with userType check
-	                HttpSession session = request.getSession();
-	                session.setAttribute("loggedInUser", user);
-	                // Redirect based on user type
-	                switch(user.getUserType()) {
-	                    case "Retailer":
-	                        response.sendRedirect("retailerProfile.jsp");
-	                        break;
-	                    case "Consumer":
-	                        response.sendRedirect("consumerProfile.jsp");
-	                        break;
-	                    case "Charitable Organization":
-	                        response.sendRedirect("charityProfile.jsp");
-	                        break;
-	                    default:
-	                        // Handle unknown user type
-	                        response.sendRedirect("login.jsp?error=Invalid user type");
-	                        break;
-	                }
-	            } else {
-	                // Login failed
-	                // Login failed
-	                response.sendRedirect("login.jsp?error=Invalid credentials");
-	            }
-	        } else if ("logout".equals(action)) {
-	            // Logout logic
-	            HttpSession session = request.getSession(false);
-	            if (session != null) {
-	                session.invalidate();
-	            }
-	            response.sendRedirect("userprofile.jsp");
-	        }
-	    }
-	}
+
+    /**
+     * Handles the GET requests.
+     * @param request HttpServletRequest object
+     * @param response HttpServletResponse object
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.getWriter().append("Served at: ").append(request.getContextPath());
+        RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    /**
+     * Handles the POST requests.
+     * @param request HttpServletRequest object
+     * @param response HttpServletResponse object
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        String action = request.getParameter("action");
+        
+        if ("register".equals(action)) {
+            // Retrieve data from the form
+            String username = request.getParameter("username");
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+            String userType = request.getParameter("usertype");
+            
+            // Create a new User object
+            User newUser = new User();
+            newUser.setUserName(username);
+            newUser.setEmail(email);
+            newUser.setPassword(password);
+            newUser.setUserType(userType);
+            
+            // Save the user to the database
+            UserDao userDao = new UserDao();
+            userDao.createUser(newUser);
+            
+            // Redirect to login page after registration
+            response.sendRedirect("login.jsp");
+        }
+        
+        // Additional else if blocks can be added for other 'action' values
+        
+        if ("login".equals(action)) {
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+            String userType = request.getParameter("usertype");
+            
+            UserDao userDao = new UserDao();
+            User user = userDao.findUserByEmail(email);
+            
+            if (user != null && user.getPassword().equals(password) && user.getUserType().equals(userType)) {
+                // Successful login with userType check
+                HttpSession session = request.getSession();
+                session.setAttribute("loggedInUser", user);
+                // Redirect based on user type
+                switch(user.getUserType()) {
+                    case "Retailer":
+                        response.sendRedirect("retailerProfile.jsp");
+                        break;
+                    case "Consumer":
+                        response.sendRedirect("consumerProfile.jsp");
+                        break;
+                    case "Charitable Organization":
+                        response.sendRedirect("charityProfile.jsp");
+                        break;
+                    default:
+                        // Handle unknown user type
+                        response.sendRedirect("login.jsp?error=Invalid user type");
+                        break;
+                }
+            } else {
+                // Login failed
+                response.sendRedirect("login.jsp?error=Invalid credentials");
+            }
+        } else if ("logout".equals(action)) {
+            // Logout logic
+            HttpSession session = request.getSession(false);
+            if (session != null) {
+                session.invalidate();
+            }
+            response.sendRedirect("userprofile.jsp");
+        }
+    }
+}
